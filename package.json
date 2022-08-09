@@ -31,7 +31,7 @@
 		"Clean Architecture"
 	],
 	"scripts": {
-		"prebuild": "rimraf ./dist && npm run check:circular-deps",
+		"prebuild": "rimraf ./dist",
 		"build": "tsc -p tsconfig.lib.json",
 		"test:prod": "NODE_ENV=production jest --silent --runInBand",
 		"test:dev": "jest --silent --runInBand",
@@ -84,8 +84,6 @@
 			"npm run format:all",
 			"npx prettier --ignore-unknown --check"
 		],
-		"*.{ts,js}": [
-			"npm run check:circular-deps"
-		]
+		"*.{ts,js}": []
 	}
 }
