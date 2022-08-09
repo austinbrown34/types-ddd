@@ -2,7 +2,7 @@ import { ValueObject } from '../core';
 import { Result } from '../core';
 import { genSaltSync, hashSync, compareSync } from 'bcryptjs';
 import passwordGenerator, { ILength } from './password-generator.util';
-const regexHash = /^\$2b\$10\$.{53}$/;
+const regexHash = /^\$2a\$10\$.{53}$/;
 
 interface Prop {
 	value: string;
@@ -70,7 +70,7 @@ class PasswordValueObject extends ValueObject<Prop> {
 		if (isEncrypted) {
 			return this;
 		}
-		const salt = genSaltSync(10);
+		const salt = genSaltSync();
 		this.props.value = hashSync(this.props.value, salt);
 		return this;
 	}
