@@ -1,6 +1,6 @@
 import { ValueObject } from '../core';
 import { Result } from '../core';
-import { genSaltSync, hashSync, compareSync } from 'bcrypt';
+import { genSaltSync, hashSync, compareSync } from 'bcryptjs';
 import passwordGenerator, { ILength } from './password-generator.util';
 const regexHash = /^\$2b\$10\$.{53}$/;
 
